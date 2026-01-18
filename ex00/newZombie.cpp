@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:34:18 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/18 16:52:24 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:27:42 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 Zombie* newZombie(std::string name)
 {
-    
+	Zombie *z = new Zombie(name);
+	return z;
 }

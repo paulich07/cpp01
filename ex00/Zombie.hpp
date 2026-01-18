@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:34:26 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/18 16:52:46 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:28:02 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class Zombie
         ~Zombie();
 
         void announce(void);
-
-        Zombie* newZombie(std::string name);
-
-        void randomChump(std::string name);
 };
+
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
