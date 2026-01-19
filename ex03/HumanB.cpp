@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:00:40 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/19 17:43:51 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:08:07 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,15 @@ HumanB::~HumanB()
 
 void HumanB::attack()
 {
-    std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+    if (!weapon)
+    {
+        std::cout << name << " has no weapon!" << std::endl;
+        return;
+    }
+    std::cout << name << " attacks with their " << (*weapon).getType() << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+    this->weapon = &weapon;
 }

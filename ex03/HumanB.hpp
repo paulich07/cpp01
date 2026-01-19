@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:00:42 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/19 17:43:32 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:07:11 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ class HumanB
 {
     private:
         std::string name;
-        Weapon weapon;
+        Weapon *weapon;
     public:
         HumanB();
         HumanB(std::string name);
         ~HumanB();
         void attack();
+        void setWeapon(Weapon &weapon);
 };
