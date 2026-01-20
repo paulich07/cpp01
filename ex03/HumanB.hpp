@@ -6,11 +6,14 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:00:42 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/19 18:07:11 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:48:38 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 class HumanB
 {
@@ -18,9 +21,10 @@ class HumanB
         std::string name;
         Weapon *weapon;
     public:
-        HumanB();
         HumanB(std::string name);
         ~HumanB();
         void attack();
         void setWeapon(Weapon &weapon);
 };
+
+#endif

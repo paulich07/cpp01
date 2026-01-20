@@ -6,11 +6,14 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:00:44 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/19 17:59:35 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:46:19 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 class HumanA
 {
@@ -22,3 +25,5 @@ class HumanA
         ~HumanA();
         void attack();
 };
+
+#endif
