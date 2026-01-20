@@ -6,13 +6,13 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:00:40 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/20 11:48:32 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:51:02 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name)
+HumanB::HumanB(std::string name) : name(name), weapon(NULL)
 {
 }
 
