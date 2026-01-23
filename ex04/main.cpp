@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 11:53:04 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/23 14:35:33 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:41:53 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int main(int argc, char *argv[])
 
     // check empty string: s1 cannot be empty (it does not make sense)
     if (s1.empty())
+    {
+        std::cerr << "The first argument should not be an empty string" << filename << std::endl;
         return (1);
+    }
     
     std::ifstream file1(filename.c_str());
     if (file1.fail())
@@ -45,7 +48,6 @@ int main(int argc, char *argv[])
     while (std::getline(file1, buff))
     {
         // replacing one occurrence of s1 with s2.
-        // saves to file2
         pos = buff.find(s1);
         while (pos != std::string::npos && pos > 0)
         {
@@ -55,10 +57,11 @@ int main(int argc, char *argv[])
             pos = buff.find(s1);
         }
         // debug
-        std::cout << buff << std::endl;
+        // std::cout << buff << std::endl;
         // to file
         file2 << buff << std::endl;
     }
+    // saves effectively the file
     file1.close();
     file2.close();
 }
