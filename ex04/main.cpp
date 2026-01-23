@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 11:53:04 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/22 16:42:48 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:35:33 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,46 @@ int main(int argc, char *argv[])
     if (argc != 4)
     {
         std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
-        return 1;
+        return (1);
     }
-
     std::string filename = argv[1];
     std::string s1 = argv[2]; // replace
     std::string s2 = argv[3]; // with
 
-    // apro stream
-    std::ifstream file1(filename);
-    std::ofstream file2(filename + ".replace");
+    size_t l1 = s1.length();
+
+    // check empty string: s1 cannot be empty (it does not make sense)
+    if (s1.empty())
+        return (1);
     
-    std::string buff;
-    
-    while (std::getline(file1, buff))
+    std::ifstream file1(filename.c_str());
+    if (file1.fail())
     {
-        file2 << buff << std::endl;
-        std::cout << buff << std::endl;
-        // find occorrenza
-        // buff.find
-        // std::string::npos + .length()
-        
+        std::cerr << "Error with file opening: " << filename << std::endl;
+        return (1); 
     }
 
-    file1.close();    
+    std::ofstream file2((filename + ".replace").c_str());
+
+    std::string buff;
+    size_t pos;    
+    while (std::getline(file1, buff))
+    {
+        // replacing one occurrence of s1 with s2.
+        // saves to file2
+        pos = buff.find(s1);
+        while (pos != std::string::npos && pos > 0)
+        {
+            buff.erase(pos, l1);
+            buff.insert(pos, s2);
+            
+            pos = buff.find(s1);
+        }
+        // debug
+        std::cout << buff << std::endl;
+        // to file
+        file2 << buff << std::endl;
+    }
+    file1.close();
     file2.close();
 }
