@@ -6,7 +6,7 @@
 /*   By: plichota <plichota@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:45:27 by plichota          #+#    #+#             */
-/*   Updated: 2026/01/23 15:37:07 by plichota         ###   ########.fr       */
+/*   Updated: 2026/01/23 17:39:40 by plichota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,39 @@ void    Harl::warning(void)
 
 void    Harl::error(void)
 {
-    std::cout << "[ ERROR ]" << std::endl;
-    std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+    std::cerr << "[ ERROR ]" << std::endl;
+    std::cerr << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
 
 void    Harl::complain(std::string level)
 {
+    int x = -1;
+    void (Harl::*foo[])() =
+    {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+
+    std::string levels[] =
+    {
+        "debug",
+        "info",
+        "warning",
+        "error"
+    };
+
+    int n = sizeof(levels) / sizeof(levels[0]);
+    for (int i = 0; i < n; i++)
+    {
+        if (level == levels[i])
+            x = i;
+    }
     
-    
-    if (level == "debug")
-    {
-        debug();
-    }
-    else if (level == "info")
-    {
-        debug();
-    }
-    else if (level == "warning")
-    {
-        warning();
-    }
-    else if (level == "error")
-    {
-        warning();
-    }
-    else
-    {
+    if (x == -1)
         std::cout << "Invalid level" << std::endl;
-    }
+    else
+        (this->*foo[x])();
 }
